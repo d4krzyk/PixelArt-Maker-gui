@@ -4,14 +4,5 @@
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../.git" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/stable-diffusion-webui/extensions/asymmetric-tiling-sd-webui" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/stable-diffusion-webui/extensions/sd-palettize" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/stable-diffusion-webui/extensions/sd-webui-controlnet" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/stable-diffusion-webui/extensions/sd-webui-pixelart" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/stable-diffusion-webui/repositories/BLIP" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/stable-diffusion-webui/repositories/generative-models" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/stable-diffusion-webui/repositories/k-diffusion" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/stable-diffusion-webui/repositories/stable-diffusion-stability-ai" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/stable-diffusion-webui/repositories/stable-diffusion-webui-assets" vcs="Git" />
   </component>
 </project>
