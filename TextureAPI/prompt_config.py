@@ -251,13 +251,13 @@ class TextureModel:
                             buf = io.BytesIO()
                             image_out.save(buf, format='PNG')
                             queue.put({
-                                "type": type_texture,  # lub "floor", "bookcase"
-                                "image": buf.getvalue(),  # bajty obrazu
+                                "type": type_texture,
+                                "image": buf.getvalue(),
                                 "status": "cancelled"
                             })
                             return
                     except Empty:
-                        pass  # nie było komunikatu, lecimy dalej
+                        pass  # przejscie dalej gdy nie ma komunikatu
                     if step == 1:
                         queue.put("first_step_done")
 

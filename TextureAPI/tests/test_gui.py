@@ -2,7 +2,9 @@ import multiprocessing
 import random
 import time
 import gi
-from main import PixelArtApp
+import pytest
+import main
+
 gi.require_version('Gtk', '3.0')
 gi.require_version('GdkPixbuf', '2.0')
 from gi.repository import Gtk, Gio, GdkPixbuf
@@ -11,10 +13,10 @@ from gi.repository import Gtk, Gio, GdkPixbuf
 @pytest.fixture
 def app():
     multiprocessing.set_start_method('spawn', force=True)
-    app_instance = PixelArtApp(mode="cpu")
+    app_instance = main.PixelArtApp(mode="cpu")
     app_instance.show_all()
     yield app_instance
-    app_instance.destroy()  # posprzątaj po teście
+    app_instance.destroy()
 
 def test_buttons_ready_after_model_ready(app):
     # Na początku przyciski powinny być zablokowane
@@ -25,7 +27,13 @@ def test_buttons_ready_after_model_ready(app):
     app.gen_queue.put({"status": "model_ready"})
     app.check_generation_result()
 
-    # Teraz przyciski powinny być odblokowane
+    # wymuszamy przetworzenie eventów
+    for _ in range(10):
+        while Gtk.events_pending():
+            Gtk.main_iteration_do(False)
+        time.sleep(0.01)
+
+    # przyciski powinny być odblokowane
     assert app.buttonGen.get_sensitive()
     assert app.buttonRandom.get_sensitive()
 
